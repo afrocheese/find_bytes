@@ -23,7 +23,7 @@ def print_bytes(ba, start, end, match_start, match_end, columns):
                 hexStr += bcolors.ENDC
             if i > start:
                 hexStr += ' | '
-                hexStr += ''.join(map(chr, [x if x > 20 and x < 127 else ord('.') for x in ba[i:i+columns]]))
+                hexStr += ''.join(map(chr, [x if x > 32 and x < 127 else ord('.') for x in ba[i:i+columns]]))
             hexStr += format('\n[%08x] ' % i)
             if i >= match_start and i <= match_end:
                 hexStr += bcolors.OKBLUE
@@ -53,11 +53,6 @@ def main():
     if not args.columns % 2 == 0:
         print('Columns must be a multiple of 2.')
         sys.exit(1)
-
-    print ('input: {}'.format(args.input))
-    print ('bytes: {}'.format(args.raw_bytes))
-    print ('bytes to print: {}'.format(args.toprint))
-    print ('columns: {}'.format(args.columns))
 
     ba = bytes(args.raw_bytes, 'utf-8')
     regex = re.compile(ba)
