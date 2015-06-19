@@ -19,13 +19,13 @@ def print_bytes(ba, start, end, match_start, match_end, columns):
     hexStr = ''
     for i in range(start, end):
         if i % columns == 0:
-            if i >= match_start and i <= match_end:
+            if match_start <= i <= match_end:
                 hexStr += bcolors.ENDC
             if i > start:
                 hexStr += ' | '
-                hexStr += ''.join(map(chr, [x if x > 32 and x < 127 else ord('.') for x in ba[i:i+columns]]))
+                hexStr += ''.join(map(chr, [x if 32 < x < 127 else ord('.') for x in ba[i:i+columns]]))
             hexStr += format('\n[%08x] ' % i)
-            if i >= match_start and i <= match_end:
+            if match_end >= i >= match_start:
                 hexStr += bcolors.OKBLUE
         elif i % 2 == 0:
             hexStr += ' '
