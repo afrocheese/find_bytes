@@ -15,3 +15,4 @@ $ python3 find_bytes.py -i test/input -r "\x54\xbd\x53\x85\x97\x7c"
 
 # Known Issues
 - Python 2 isn't supported
+- Reads entire file into memory for processing
