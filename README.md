@@ -1,4 +1,4 @@
-# find_bytes
+# Overview
 
 Use this tool to find a sequence of bytes in a binary file. 
 
@@ -12,3 +12,7 @@ $ python3 find_bytes.py -i test/input -r "\x54\xbd\x53\x85\x97\x7c"
 [000003a0] b744 6893 dfdd 2a01 884e 1641 4f12 3ea2 | ......9....r... 
 [000003b0] fb9d 82d9 c6fd 39e5 b8d6 9272 d8de f718 
 ```
+
+# Known Issues
+- Python 2 isn't supported
+- Reads entire file into memory for processing
