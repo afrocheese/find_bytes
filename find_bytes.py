@@ -23,7 +23,7 @@ def print_bytes(ba, start, end, match_start, match_end, columns):
                 hexStr += bcolors.ENDC
             if i > start:
                 hexStr += ' | '
-                hexStr += ''.join(map(chr, [x if 32 < x < 127 else ord('.') for x in ba[i:i+columns]]))
+                hexStr += ''.join(map(chr, [x if 32 < x < 127 else ord('.') for x in ba[i-columns:i]]))
             hexStr += format('\n[%08x] ' % i)
             if match_end >= i >= match_start:
                 hexStr += bcolors.OKBLUE
